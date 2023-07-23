@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/registration.css" th:href="@{/css/registration.css}"/>
+</head>
+<body>
+<header>
+    <h1>INVENTORA</h1>
+</header>
+<div class="bg-image">
+    <img src="/images/bg.jpg" alt="background" th:src="@{/images/bg.jpg}">
+    <div class="registration-form">
+        <form class="form-container" th:action="@{/registration}" method="post" th:object="${user}">
+            <h2>Sign up here</h2>
+            <div class="form-group">
+                <label for="firstname">
+                    First Name
+                </label>
+                <input type="text" class="input-field" id="firstname" name="firstname" th:field="*{firstName}" required
+                       autofocus="autofocus"/>
+            </div>
+            <div class="form-group">
+                <label for="lastname">
+                    Last Name
+                </label>
+                <input type="text" class="input-field" id="lastname" name="lastname" th:field="*{lastName}" required
+                       autofocus="autofocus"/>
+            </div>
+            <div class="form-group">
+                <label for="email">
+                    Email
+                </label>
+                <input type="text" class="input-field" id="email" name="email" th:field="*{email}" required
+                       autofocus="autofocus"/>
+            </div>
+            <div class="form-group">
+                <label for="password">
+                    Password
+                </label>
+                <input type="password" class="input-field" id="password" name="password" th:field="*{password}" required
+                       autofocus="autofocus"/>
+            </div>
+            <button type="submit" class="submit-btn">Register</button>
+            <span>Already registered? <a href="/" th:href="@{/login}">Login here</a> </span>
+        </form>
+    </div>
+    <div th:if="${param.success}">
+        <div class="alert-success">
+            <span><strong>Success!</strong> You've registered successfully.</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

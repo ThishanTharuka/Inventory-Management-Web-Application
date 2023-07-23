@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/home.css" th:href="@{/css/home.css}"/>
+</head>
+<body>
+<div class="top-nav">
+    <div>
+        <header>
+            <h1>INVENTORA</h1>
+        </header>
+    </div>
+    <div class="logout-btn" sec:authorize="isAuthenticated()">
+        <a th:href="@{/logout}" class="logout-link">Logout</a>
+    </div>
+</div>
+<div class="container">
+    Welcome <span sec:authentication="principal.username">User</span>
+</div>
+</body>
+</html>
