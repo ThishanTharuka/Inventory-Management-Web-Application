@@ -25,9 +25,9 @@ public class ItemService {
     public Item getItemById(String id) {
         Optional<Item> optional = itemRepository.findById(id);
         Item item = null;
-        if(optional.isPresent()){
+        if (optional.isPresent()) {
             item = optional.get();
-        }else {
+        } else {
             throw new RuntimeException("Item not found by id:: " + id);
         }
         return item;

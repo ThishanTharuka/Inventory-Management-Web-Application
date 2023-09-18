@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Suppliers</title>
+    <link rel="stylesheet" type="text/css" href="/css/supplier-list.css" th:href="@{/css/supplier-list.css}"/>
+</head>
+<body>
+<div id="container">
+    <h1>Supplier List</h1>
+    <div id="supplier-list" th:each="supplier :${supplierList}">
+        <div id="supplier">
+            <div>
+                <p th:text="${supplier.supplierName}">Supplier Name</p><br>
+                <p th:text="${supplier.supplierId}">Supplier Id</p><br>
+                <p th:text="${supplier.supplierContactNumber}">Supplier Contact No.</p><br>
+                <p th:text="${supplier.supplierNIC}">NIC</p><br>
+                <p th:text="${supplier.email}">Email</p><br>
+                <p th:text="${supplier.address}">Address</p><br>
+                <div class="button_list">
+                    <a type="button" class="button" th:href="@{/showSupplierForUpdate/{id}(id=${supplier.supplierId})}">Update</a>
+                    <a type="button" class="button_dlt" th:href="@{/deleteSupplier/{id}(id=${supplier.supplierId})}">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

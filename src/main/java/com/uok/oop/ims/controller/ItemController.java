@@ -44,8 +44,8 @@ public class ItemController {
         return "item-list";
     }
 
-    @GetMapping("/showFormForUpdate/{id}")
-    public String showFormForUpdate(@PathVariable(value = "id") String id, Model model){
+    @GetMapping("/showItemForUpdate/{id}")
+    public String showItemForUpdate(@PathVariable(value = "id") String id, Model model){
         Item item = itemService.getItemById(id);
         model.addAttribute("item", item);
         return "/add-item";

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Item Styles</title>
+    <title>Items</title>
     <link rel="stylesheet" type="text/css" href="/css/item-list.css" th:href="@{/css/item-list.css}" />
   </head>
   <body>
@@ -14,7 +14,7 @@
           <div>
             <p th:text="${item.itemName}">Item Name</p>
             <div class="button_list">
-              <a type="button" class="button" th:href="@{/showFormForUpdate/{id}(id=${item.itemId})}" >Update</a>
+              <a type="button" class="button" th:href="@{/showItemForUpdate/{id}(id=${item.itemId})}" >Update</a>
               <a type="button" class="button" th:href="@{/view-item/{id}(id=${item.itemId})}">Show</a>
               <a type="button" class="button_dlt" th:href="@{/deleteItem/{id}(id=${item.itemId})}">Delete</a>
             </div>
