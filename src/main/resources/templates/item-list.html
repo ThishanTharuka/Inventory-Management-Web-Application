@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Item Styles</title>
+    <link rel="stylesheet" type="text/css" href="/css/item-list.css" th:href="@{/css/item-list.css}" />
+  </head>
+  <body>
+    <div id="container">
+      <h1>Item List</h1>
+      <div id="item-list" th:each="item :${itemList}">
+        <div id="item">
+          <div>
+            <p th:text="${item.itemName}">Item Name</p>
+            <div class="button_list">
+              <a type="button" class="button" th:href="@{/showFormForUpdate/{id}(id=${item.itemId})}" >Update</a>
+              <a type="button" class="button" th:href="@{/view-item/{id}(id=${item.itemId})}">Show</a>
+              <a type="button" class="button_dlt" th:href="@{/deleteItem/{id}(id=${item.itemId})}">Delete</a>
+            </div>
+          </div>
+          <div>
+            <img
+              th:src="${item.imageUrl}"
+              alt="item_image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

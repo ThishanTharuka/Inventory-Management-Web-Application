@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>add Item</title>
+    <link rel="stylesheet" type="text/css" href="/css/add-item.css" th:href="@{/css/add-item.css}" />
+  </head>
+  <body>
+    <div id="container">
+      <h1>Add Item</h1>
+
+      <form th:action="@{/submit-item}" method="post" th:object="${item}">
+        <div>
+          <label for="product_name">Product Name:</label>
+          <input type="text" id="product_name" name="product_name" th:field="*{itemName}" required />
+        </div>
+        <div>
+          <label for="product_id">Product ID:</label>
+          <input type="text" id="product_id" name="product_id" th:field="*{itemId}" required />
+        </div>
+        <div class="des">
+          <label for="product_description">Description:</label>
+          <textarea
+            id="product_description"
+            name="product_description"
+            rows="4"
+            required
+            th:field="*{description}"
+          ></textarea>
+        </div>
+        <div>
+          <label for="product_price">Price:</label>
+          <input
+            type="number"
+            id="product_price"
+            name="product_price"
+            step="0.01"
+            required
+            th:field="*{price}"
+          />
+        </div>
+        <div>
+          <label for="quantity">Quantity:</label>
+          <input
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  required
+                  th:field="*{quantity}"
+          />
+        </div>
+        <div>
+          <label for="product_image">Product Image(URL):</label>
+          <input type="text" id="product_image" name="product_image" required th:field="*{imageUrl}" />
+        </div>
+        <button type="submit">Add Product</button>
+      </form>
+    </div>
+  </body>
+</html>

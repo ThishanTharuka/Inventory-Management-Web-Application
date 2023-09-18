@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show Item</title>
+    <link rel="stylesheet" type="text/css" href="/css/view-item.css" th:href="@{/css/view-item.css}" />
+  </head>
+  <body>
+    <div id="container" th:object="${item}">
+      <h1 th:text="${item.itemName}">Item Name</h1>
+      <div class="item">
+        <p class="info" th:text="${item.description}">Item infomation</p>
+        <div class="details">
+          <p>Price: <span th:text="${item.price}">N/A</span></p>
+          <p>Quantity: <span th:text="${item.quantity}">N/A</span></p>
+        </div>
+        <div class="image">
+          <img
+            th:src="${item.imageUrl}"
+            alt="item picture"
+          />
+        </div>
+      </div>
+      <div id="sales">
+        <div>
+          <p>Total Sales</p>
+          <p>23,754</p>
+        </div>
+        <div>
+          <p>Revenue</p>
+          <p>110,754</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
