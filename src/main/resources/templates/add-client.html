@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Add Item</title>
-    <link rel="stylesheet" type="text/css" href="/css/add-item.css" th:href="@{/css/add-item.css}"/>
+    <title>Add Client</title>
+    <link rel="stylesheet" type="text/css" href="/css/add_sup_cus.css" th:href="@{/css/add_sup_cus.css}"/>
     <link rel="stylesheet" type="text/css" href="/css/nav.css" th:href="@{/css/nav.css}"/>
 </head>
 <body>
@@ -13,13 +13,13 @@
         <li>
             <a th:href="@{/}">DASHBOARD</a>
         </li>
-        <li class="selected">
+        <li>
             <a th:href="@{/item-list}">ITEMS</a>
         </li>
         <li>
             <a th:href="@{/supplier-list}">SUPPLIERS</a>
         </li>
-        <li>
+        <li class="selected">
             <a th:href="@{/client-list}">CUSTOMERS</a>
         </li>
         <li>
@@ -35,53 +35,34 @@
     </div>
 </nav>
 <div id="container">
-    <h1>Add Item</h1>
+    <h1>Add New Client</h1>
 
-    <form th:action="@{/submit-item}" method="post" th:object="${item}">
+    <form th:action="@{/submit-client}" method="post" th:object="${client}">
         <div>
-            <label for="product_name">Product Name:</label>
-            <input type="text" id="product_name" name="product_name" th:field="*{itemName}" required/>
-        </div>
-        <div>
-            <label for="product_id">Product ID:</label>
-            <input type="text" id="product_id" name="product_id" th:field="*{itemId}" required/>
-        </div>
-        <div class="des">
-            <label for="product_description">Description:</label>
-            <textarea
-                    id="product_description"
-                    name="product_description"
-                    rows="4"
-                    required
-                    th:field="*{description}"
-            ></textarea>
+            <label for="client_id">Client Id:</label>
+            <input type="text" id="client_id" name="client_id" th:field="*{client_id}" required/>
         </div>
         <div>
-            <label for="product_price">Price:</label>
-            <input
-                    type="number"
-                    id="product_price"
-                    name="product_price"
-                    step="0.01"
-                    required
-                    th:field="*{price}"
-            />
+            <label for="client_name">Client Name:</label>
+            <input type="text" id="client_name" name="client_name" th:field="*{client_name}" required/>
         </div>
         <div>
-            <label for="quantity">Quantity:</label>
-            <input
-                    type="number"
-                    id="quantity"
-                    name="quantity"
-                    required
-                    th:field="*{quantity}"
-            />
+            <label for="NIC number">NIC number:</label>
+            <input type="text" id="NIC number" name="NIC number" th:field="*{client_NIC}" required/>
         </div>
         <div>
-            <label for="product_image">Product Image(URL):</label>
-            <input type="text" id="product_image" name="product_image" required th:field="*{imageUrl}"/>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" th:field="*{client_email}" required/>
         </div>
-        <button type="submit">Add Product</button>
+        <div>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" th:field="*{client_contact}" required/>
+        </div>
+        <div class="address">
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" th:field="*{client_address}" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
     </form>
 </div>
 <footer>

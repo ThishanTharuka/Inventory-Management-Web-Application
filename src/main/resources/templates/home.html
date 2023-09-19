@@ -5,22 +5,22 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" type="text/css" media="all" href="/css/home.css" th:href="@{/css/home.css}"/>
-    <link rel="stylesheet" type="text/css" href="/css/nav.css" th:href="@{/css/nav.css}" />
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" th:href="@{/css/nav.css}"/>
 </head>
 <body>
 <nav id="nav">
     <ul>
-        <li  class="selected">
+        <li class="selected">
             <a th:href="@{/}">DASHBOARD</a>
         </li>
         <li>
-            <a th:href="@{item-list}">ITEMS</a>
+            <a th:href="@{/item-list}">ITEMS</a>
         </li>
         <li>
-            <a th:href="@{supplier-list}">SUPPLIERS</a>
+            <a th:href="@{/supplier-list}">SUPPLIERS</a>
         </li>
         <li>
-            <a th:href="@{#}">CUSTOMERS</a>
+            <a th:href="@{/client-list}">CUSTOMERS</a>
         </li>
         <li>
             <a th:href="@{#}">ORDERS</a>
