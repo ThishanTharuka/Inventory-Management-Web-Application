@@ -5,20 +5,67 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" type="text/css" media="all" href="/css/home.css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" th:href="@{/css/nav.css}" />
 </head>
 <body>
-<div class="top-nav">
+<nav id="nav">
+    <ul>
+        <li  class="selected">
+            <a th:href="@{/}">DASHBOARD</a>
+        </li>
+        <li>
+            <a th:href="@{item-list}">ITEMS</a>
+        </li>
+        <li>
+            <a th:href="@{supplier-list}">SUPPLIERS</a>
+        </li>
+        <li>
+            <a th:href="@{#}">CUSTOMERS</a>
+        </li>
+        <li>
+            <a th:href="@{#}">ORDERS</a>
+        </li>
+        <li>
+            <a th:href="@{#}">SALES</a>
+        </li>
+    </ul>
+    <h1>INVENTORA</h1>
     <div>
-        <header>
-            <h1>INVENTORA</h1>
-        </header>
+        <a th:href="@{/logout}" class="logOut_btn">Logout</a>
     </div>
-    <div class="logout-btn" sec:authorize="isAuthenticated()">
-        <a th:href="@{/logout}" class="logout-link">Logout</a>
-    </div>
-</div>
+</nav>
+<!--<div class="top-nav">-->
+<!--    <div>-->
+<!--        <header>-->
+<!--            <h1>INVENTORA</h1>-->
+<!--        </header>-->
+<!--    </div>-->
+<!--    <div class="logout-btn" sec:authorize="isAuthenticated()">-->
+<!--        <a th:href="@{/logout}" class="logout-link">Logout</a>-->
+<!--    </div>-->
+<!--</div>-->
 <div class="container">
     Welcome <span sec:authentication="principal.username">User</span>
 </div>
+<footer>
+    <div>
+        <h3>About</h3>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text ever
+            since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only
+            five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+        </p>
+    </div>
+    <h2>INVENTORA</h2>
+    <ul>
+        <li><a href="" #>PRIVACY POLICY</a></li>
+        <li><a href="" #>TERMS OF USE</a></li>
+        <li><a href="" #>CONTACT US</a></li>
+        <li><a href="" #>FAQ</a></li>
+    </ul>
+</footer>
 </body>
 </html>

@@ -1,61 +1,108 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Item</title>
-    <link rel="stylesheet" type="text/css" href="/css/add-item.css" th:href="@{/css/add-item.css}" />
-  </head>
-  <body>
-    <div id="container">
-      <h1>Add Item</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Item</title>
+  <link rel="stylesheet" type="text/css" href="/css/add-item.css" th:href="@{/css/add-item.css}" />
+  <link rel="stylesheet" type="text/css" href="/css/nav.css" th:href="@{/css/nav.css}" />
+</head>
+<body>
+<nav id="nav">
+  <ul>
+      <li>
+          <a th:href="@{/}">DASHBOARD</a>
+      </li>
+      <li class="selected">
+          <a th:href="@{item-list}">ITEMS</a>
+      </li>
+      <li>
+          <a th:href="@{supplier-list}">SUPPLIERS</a>
+      </li>
+      <li>
+          <a th:href="@{#}">CUSTOMERS</a>
+      </li>
+      <li>
+          <a th:href="@{#}">ORDERS</a>
+      </li>
+      <li>
+          <a th:href="@{#}">SALES</a>
+      </li>
+  </ul>
+  <h1>INVENTORA</h1>
+  <div>
+      <a th:href="@{/logout}" class="logOut_btn">Logout</a>
+  </div>
+</nav>
+<div id="container">
+  <h1>Add Item</h1>
 
-      <form th:action="@{/submit-item}" method="post" th:object="${item}">
-        <div>
-          <label for="product_name">Product Name:</label>
-          <input type="text" id="product_name" name="product_name" th:field="*{itemName}" required />
-        </div>
-        <div>
-          <label for="product_id">Product ID:</label>
-          <input type="text" id="product_id" name="product_id" th:field="*{itemId}" required />
-        </div>
-        <div class="des">
-          <label for="product_description">Description:</label>
-          <textarea
-            id="product_description"
-            name="product_description"
-            rows="4"
-            required
-            th:field="*{description}"
-          ></textarea>
-        </div>
-        <div>
-          <label for="product_price">Price:</label>
-          <input
-            type="number"
-            id="product_price"
-            name="product_price"
-            step="0.01"
-            required
-            th:field="*{price}"
-          />
-        </div>
-        <div>
-          <label for="quantity">Quantity:</label>
-          <input
-                  type="number"
-                  id="quantity"
-                  name="quantity"
-                  required
-                  th:field="*{quantity}"
-          />
-        </div>
-        <div>
-          <label for="product_image">Product Image(URL):</label>
-          <input type="text" id="product_image" name="product_image" required th:field="*{imageUrl}" />
-        </div>
-        <button type="submit">Add Product</button>
-      </form>
+  <form th:action="@{/submit-item}" method="post" th:object="${item}">
+    <div>
+      <label for="product_name">Product Name:</label>
+      <input type="text" id="product_name" name="product_name" th:field="*{itemName}" required />
     </div>
-  </body>
+    <div>
+      <label for="product_id">Product ID:</label>
+      <input type="text" id="product_id" name="product_id" th:field="*{itemId}" required />
+    </div>
+    <div class="des">
+      <label for="product_description">Description:</label>
+      <textarea
+              id="product_description"
+              name="product_description"
+              rows="4"
+              required
+              th:field="*{description}"
+      ></textarea>
+    </div>
+    <div>
+      <label for="product_price">Price:</label>
+      <input
+              type="number"
+              id="product_price"
+              name="product_price"
+              step="0.01"
+              required
+              th:field="*{price}"
+      />
+    </div>
+    <div>
+      <label for="quantity">Quantity:</label>
+      <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              required
+              th:field="*{quantity}"
+      />
+    </div>
+    <div>
+      <label for="product_image">Product Image(URL):</label>
+      <input type="text" id="product_image" name="product_image" required th:field="*{imageUrl}" />
+    </div>
+    <button type="submit">Add Product</button>
+  </form>
+</div>
+<footer>
+  <div>
+    <h3>About</h3>
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting
+      industry. Lorem Ipsum has been the industry's standard dummy text ever
+      since the 1500s, when an unknown printer took a galley of type and
+      scrambled it to make a type specimen book. It has survived not only
+      five centuries, but also the leap into electronic typesetting,
+      remaining essentially unchanged.
+    </p>
+  </div>
+  <h2>INVENTORA</h2>
+  <ul>
+    <li><a href="" #>PRIVACY POLICY</a></li>
+    <li><a href="" #>TERMS OF USE</a></li>
+    <li><a href="" #>CONTACT US</a></li>
+    <li><a href="" #>FAQ</a></li>
+  </ul>
+</footer>
+</body>
 </html>

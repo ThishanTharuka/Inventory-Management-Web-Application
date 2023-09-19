@@ -1,32 +1,79 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Items</title>
-    <link rel="stylesheet" type="text/css" href="/css/item-list.css" th:href="@{/css/item-list.css}" />
-  </head>
-  <body>
-    <div id="container">
-      <h1>Item List</h1>
-      <div id="item-list" th:each="item :${itemList}">
-        <div id="item">
-          <div>
-            <p th:text="${item.itemName}">Item Name</p>
-            <div class="button_list">
-              <a type="button" class="button" th:href="@{/showItemForUpdate/{id}(id=${item.itemId})}" >Update</a>
-              <a type="button" class="button" th:href="@{/view-item/{id}(id=${item.itemId})}">Show</a>
-              <a type="button" class="button_dlt" th:href="@{/deleteItem/{id}(id=${item.itemId})}">Delete</a>
-            </div>
-          </div>
-          <div>
-            <img
-              th:src="${item.imageUrl}"
-              alt="item_image"
-            />
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Items</title>
+  <link rel="stylesheet" type="text/css" href="/css/item-list.css" th:href="@{/css/item-list.css}" />
+  <link rel="stylesheet" type="text/css" href="/css/nav.css" th:href="@{/css/nav.css}" />
+</head>
+<body>
+<nav id="nav">
+    <ul>
+        <li>
+            <a th:href="@{/}">DASHBOARD</a>
+        </li>
+        <li class="selected">
+            <a th:href="@{item-list}">ITEMS</a>
+        </li>
+        <li>
+            <a th:href="@{supplier-list}">SUPPLIERS</a>
+        </li>
+        <li>
+            <a th:href="@{#}">CUSTOMERS</a>
+        </li>
+        <li>
+            <a th:href="@{#}">ORDERS</a>
+        </li>
+        <li>
+            <a th:href="@{#}">SALES</a>
+        </li>
+    </ul>
+    <h1>INVENTORA</h1>
+    <div>
+        <a th:href="@{/logout}" class="logOut_btn">Logout</a>
+    </div>
+</nav>
+<div id="container">
+  <h1>Item List</h1>
+  <div id="item-list" th:each="item :${itemList}">
+    <div id="item">
+      <div>
+        <p th:text="${item.itemName}">Item Name</p>
+        <div class="button_list">
+          <a type="button" class="button" th:href="@{/showItemForUpdate/{id}(id=${item.itemId})}" >Update</a>
+          <a type="button" class="button" th:href="@{/view-item/{id}(id=${item.itemId})}">Show</a>
+          <a type="button" class="button_dlt" th:href="@{/deleteItem/{id}(id=${item.itemId})}">Delete</a>
         </div>
       </div>
+      <div>
+        <img
+                th:src="${item.imageUrl}"
+                alt="item_image"
+        />
+      </div>
     </div>
-  </body>
+  </div>
+</div>
+<footer>
+  <div>
+    <h3>About</h3>
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting
+      industry. Lorem Ipsum has been the industry's standard dummy text ever
+      since the 1500s, when an unknown printer took a galley of type and
+      scrambled it to make a type specimen book. It has survived not only
+      five centuries, but also the leap into electronic typesetting,
+      remaining essentially unchanged.
+    </p>
+  </div>
+  <h2>INVENTORA</h2>
+  <ul>
+    <li><a href="" #>PRIVACY POLICY</a></li>
+    <li><a href="" #>TERMS OF USE</a></li>
+    <li><a href="" #>CONTACT US</a></li>
+    <li><a href="" #>FAQ</a></li>
+  </ul>
+</footer>
+</body>
 </html>
