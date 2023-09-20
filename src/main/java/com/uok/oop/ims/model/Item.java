@@ -12,8 +12,10 @@ public class Item {
     private String itemName;
     @Column(name = "description")
     private String description;
-    @Column(name = "price")
-    private double price;
+    @Column(name = "buy_price")
+    private double buyPrice;
+    @Column(name = "sell_price")
+    private double sellPrice;
     @Column(name = "quantity")
     private int quantity;
     @Column(name = "imageUrl")
@@ -26,11 +28,12 @@ public class Item {
     public Item() {
     }
 
-    public Item(String itemId, String itemName, String description, double price, int quantity, String imageUrl, Supplier supplier) {
+    public Item(String itemId, String itemName, String description, double buyPrice, double sellPrice, int quantity, String imageUrl, Supplier supplier) {
         this.itemId = itemId;
         this.itemName = itemName;
         this.description = description;
-        this.price = price;
+        this.buyPrice = buyPrice;
+        this.sellPrice = sellPrice;
         this.quantity = quantity;
         this.imageUrl = imageUrl;
         this.supplier = supplier;
@@ -60,12 +63,20 @@ public class Item {
         this.description = description;
     }
 
-    public double getPrice() {
-        return price;
+    public double getBuyPrice() {
+        return buyPrice;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setBuyPrice(double buyPrice) {
+        this.buyPrice = buyPrice;
+    }
+
+    public double getSellPrice() {
+        return sellPrice;
+    }
+
+    public void setSellPrice(double sellPrice) {
+        this.sellPrice = sellPrice;
     }
 
     public int getQuantity() {

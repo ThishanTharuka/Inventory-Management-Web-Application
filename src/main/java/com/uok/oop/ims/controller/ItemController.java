@@ -27,7 +27,7 @@ public class ItemController {
     @RequestMapping("/submit-item")
     public String submitItemForm(@ModelAttribute ItemDto item, Model model){
         try {
-            Item newItem = new Item(item.getItemId(), item.getItemName(), item.getDescription(), item.getPrice(), item.getQuantity(), item.getImageUrl(), item.getSupplier());
+            Item newItem = new Item(item.getItemId(), item.getItemName(), item.getDescription(), item.getBuyPrice(), item.getSellPrice(), item.getQuantity(), item.getImageUrl(), item.getSupplier());
             itemService.addNewItems(newItem);
             return "redirect:/item-list";
         } catch (RuntimeException e) {

@@ -36,6 +36,7 @@ public class ItemService {
         }
         return item;
     }
+
     public void addNewItems(Item item) {
         // Check if the supplier exists in the database
         String supplierId = item.getSupplier().getSupplierId(); // Assuming you have a getter for supplierId in Supplier class
@@ -53,4 +54,35 @@ public class ItemService {
         this.itemRepository.deleteById(id);
     }
 
+    public int getTotalQuantityOfAllItems() {
+        // Sum up the quantity of all items using a custom query
+        Integer totalQuantity = itemRepository.sumTotalQuantity();
+
+        // Handle null case if there are no items in the database
+        return totalQuantity != null ? totalQuantity : 0;
+    }
+
+    public double getTotalExpenditureForAllItems() {
+        List<Item> items = itemRepository.findAll();
+        double totalExpenditure = 0.0;
+
+        for (Item item : items) {
+            double itemExpenditure = item.getBuyPrice() * item.getQuantity();
+            totalExpenditure += itemExpenditure;
+        }
+
+        return totalExpenditure;
+    }
+
+    public double getTotalProjectedIncomeForAllItems() {
+        List<Item> items = itemRepository.findAll();
+        double totalProjectedIncome = 0.0;
+
+        for (Item item : items) {
+            double itemIncome = item.getSellPrice() * item.getQuantity();
+            totalProjectedIncome += itemIncome;
+        }
+
+        return totalProjectedIncome;
+    }
 }

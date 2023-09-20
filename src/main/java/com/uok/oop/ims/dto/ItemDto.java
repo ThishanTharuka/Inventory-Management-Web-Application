@@ -7,7 +7,9 @@ public class ItemDto {
     private String itemId;
     private String itemName;
     private String description;
-    private double price;
+    private double buyPrice;
+    private double sellPrice;
+
     private int quantity;
     private String imageUrl;
     private Supplier supplier;
@@ -36,12 +38,20 @@ public class ItemDto {
         this.description = description;
     }
 
-    public double getPrice() {
-        return price;
+    public double getBuyPrice() {
+        return buyPrice;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setBuyPrice(double buyPrice) {
+        this.buyPrice = buyPrice;
+    }
+
+    public double getSellPrice() {
+        return sellPrice;
+    }
+
+    public void setSellPrice(double sellPrice) {
+        this.sellPrice = sellPrice;
     }
 
     public int getQuantity() {

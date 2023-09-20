@@ -39,7 +39,8 @@
     <div class="item">
         <p class="info" th:text="${item.description}">Item information</p>
         <div class="details">
-            <p>Price: <span th:text="${item.price}">N/A</span></p>
+            <p>Buy Price: LKR <span th:text="${#numbers.formatDecimal(item.buyPrice, 0, 'COMMA', 2, 'POINT')}">N/A</span></p>
+            <p>Sell Price: LKR <span th:text="${#numbers.formatDecimal(item.sellPrice, 0, 'COMMA', 2, 'POINT')}">N/A</span></p>
             <p>Quantity: <span th:text="${item.quantity}">N/A</span></p>
         </div>
         <div class="image">

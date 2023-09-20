@@ -73,3 +73,82 @@ h1 {
 .container {
     margin-top: 80px; /* Add margin to create space below the top navigation bar */
 }
+
+.container span {
+    color: #26af3c;
+    font-weight: bold;
+}
+
+.container p {
+    color: coral;
+    font-weight: bold;
+}
+
+#container {
+    width: 90%;
+    margin: 2rem auto;
+    color: #444;
+    margin-top: 2rem;
+}
+
+.side-by-side {
+    display: flex;
+    justify-content: space-between;
+}
+
+.side-by-side div {
+    width: 45%;
+}
+
+.side-by-side div div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem 4rem;
+    width: 100%;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.side-by-side h3 {
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+
+.side-by-side p {
+    font-weight: bold;
+    color: #6956dd;
+    font-size: 3rem;
+}
+
+.horizontal {
+    display: flex;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 1rem 4rem;
+    margin-top: 2rem;
+    justify-content: space-around;
+}
+
+.horizontal div h3 {
+    font-weight: lighter;
+}
+
+.horizontal div p {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.horizontal div:last-child p {
+    color: #6956dd;
+}
+
+.vir-line {
+    height: 90px;
+    width: 2px;
+    background-color: #ccc;
+}

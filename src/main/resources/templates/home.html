@@ -45,7 +45,54 @@
 <!--    </div>-->
 <!--</div>-->
 <div class="container">
-    Welcome <span sec:authentication="principal.username">User</span>
+    <p>Welcome! <span sec:authentication="principal.username">User</span></p>
+</div>
+<div id="container">
+    <div class="side-by-side">
+        <div>
+            <div>
+                <h3>Total Items</h3>
+                <p><span th:text="${totalItems}"></span></p>
+            </div>
+            <div>
+                <h3>Number of Suppliers</h3>
+                <p><span th:text="${totalSuppliers}"></span></p>
+            </div>
+            <div>
+                <h3>Number of Customers</h3>
+                <p><span th:text="${totalCustomers}"></span></p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <h3>Quantity In Hand</h3>
+                <p><span th:text="${totalQuantity}"></span></p>
+            </div>
+            <div>
+                <h3>Total Expenditure</h3>
+                <p>LKR <span th:text="${#numbers.formatDecimal(totalExpenditure, 0, 'COMMA', 2, 'POINT')}"></span></p>
+            </div>
+            <div>
+                <h3>Total Projected Income</h3>
+                <p>LKR <span th:text="${#numbers.formatDecimal(totalProjectedIncome, 0, 'COMMA', 2, 'POINT')}"></span></p>
+            </div>
+        </div>
+    </div>
+<!--    <div class="horizontal">-->
+<!--        <div>-->
+<!--            <h3>Total Orders</h3>-->
+<!--            <p>$1833</p>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <h3>Total Delivers</h3>-->
+<!--            <p>$1833</p>-->
+<!--        </div>-->
+<!--        <div class="vir-line"></div>-->
+<!--        <div>-->
+<!--            <h3>Average Order Price</h3>-->
+<!--            <p>$1833</p>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
 <footer>
     <div>
