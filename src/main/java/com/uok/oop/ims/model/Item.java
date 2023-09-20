@@ -18,17 +18,22 @@ public class Item {
     private int quantity;
     @Column(name = "imageUrl")
     private String imageUrl;
+    @ManyToOne
+    @JoinColumn(name = "supplier_id")
+    private Supplier supplier;
+
 
     public Item() {
     }
 
-    public Item(String itemId, String itemName, String description, double price, int quantity, String imageUrl) {
+    public Item(String itemId, String itemName, String description, double price, int quantity, String imageUrl, Supplier supplier) {
         this.itemId = itemId;
         this.itemName = itemName;
         this.description = description;
         this.price = price;
         this.quantity = quantity;
         this.imageUrl = imageUrl;
+        this.supplier = supplier;
     }
 
     public String getItemId() {
@@ -77,5 +82,13 @@ public class Item {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
     }
 }

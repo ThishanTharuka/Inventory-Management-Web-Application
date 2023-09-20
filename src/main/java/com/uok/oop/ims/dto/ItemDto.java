@@ -1,5 +1,6 @@
 package com.uok.oop.ims.dto;
 
+import com.uok.oop.ims.model.Supplier;
 import jakarta.persistence.Column;
 
 public class ItemDto {
@@ -9,6 +10,7 @@ public class ItemDto {
     private double price;
     private int quantity;
     private String imageUrl;
+    private Supplier supplier;
 
     public String getItemId() {
         return itemId;
@@ -56,5 +58,13 @@ public class ItemDto {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
     }
 }

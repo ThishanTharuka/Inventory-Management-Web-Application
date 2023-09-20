@@ -35,12 +35,15 @@
     </div>
 </nav>
 <div id="container">
-    <h1>Item List</h1>
+    <div id="new-btn-bar">
+        <h1>Item List</h1>
+        <a th:href="@{/add-item}" id="add-new-btn">Add New</a>
+    </div>
     <div id="item-list" th:each="item :${itemList}">
         <div id="item">
             <div>
-                <p th:text="${item.itemName}">Item Name</p><br>
-                <p th:text="${item.price}">Item Price</p>
+                <p>Item Name: <span th:text="${item.itemName}"></span></p><br>
+                <p>Item Price: <span th:text="${item.price}"></span></p>
                 <div class="button_list">
                     <a type="button" class="button" th:href="@{/showItemForUpdate/{id}(id=${item.itemId})}">Update</a>
                     <a type="button" class="button" th:href="@{/view-item/{id}(id=${item.itemId})}">Show</a>

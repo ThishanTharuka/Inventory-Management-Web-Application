@@ -25,10 +25,15 @@ public class ItemController {
     }
 
     @RequestMapping("/submit-item")
-    public String submitItemForm(@ModelAttribute ItemDto item){
-        Item newItem = new Item(item.getItemId(), item.getItemName(), item.getDescription(), item.getPrice(), item.getQuantity(), item.getImageUrl());
-        itemService.addItems(newItem);
-        return "redirect:/item-list";
+    public String submitItemForm(@ModelAttribute ItemDto item, Model model){
+        try {
+            Item newItem = new Item(item.getItemId(), item.getItemName(), item.getDescription(), item.getPrice(), item.getQuantity(), item.getImageUrl(), item.getSupplier());
+            itemService.addNewItems(newItem);
+            return "redirect:/item-list";
+        } catch (RuntimeException e) {
+            model.addAttribute("error", true);// Handle the error by adding an error message to the model
+            return "redirect:/add-item?error"; // Return to the add-item page with the error message
+        }
     }
 
     @GetMapping("/view-item/{id}")

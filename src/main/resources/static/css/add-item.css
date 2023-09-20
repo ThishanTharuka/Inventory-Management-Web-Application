@@ -59,3 +59,16 @@ form button {
   width: 30rem;
   height: 15rem;
 }
+.alert-danger {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 50px;
+  color: #e00920;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  vertical-align: center;
+  background: transparent;
+}

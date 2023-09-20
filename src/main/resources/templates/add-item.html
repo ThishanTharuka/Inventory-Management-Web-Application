@@ -34,6 +34,11 @@
         <a th:href="@{/logout}" class="logOut_btn">Logout</a>
     </div>
 </nav>
+<div th:if="${param.error}">
+    <div class="alert-danger">
+        <span><strong>Error!</strong> Invalid Supplier Id, Supplier does not exist.</span>
+    </div>
+</div>
 <div id="container">
     <h1>Add Item</h1>
 
@@ -45,6 +50,10 @@
         <div>
             <label for="product_id">Product ID:</label>
             <input type="text" id="product_id" name="product_id" th:field="*{itemId}" required/>
+        </div>
+        <div>
+            <label for="supplier_id">Supplier:</label>
+            <input type="text" id="supplier_id" name="product_id" th:field="*{supplier}" required/>
         </div>
         <div class="des">
             <label for="product_description">Description:</label>
