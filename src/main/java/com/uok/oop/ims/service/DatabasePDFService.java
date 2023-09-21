@@ -20,8 +20,10 @@ import com.lowagie.text.Font;
 import com.lowagie.text.FontFactory;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.Phrase;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class DatabasePDFService {
 
     public static ByteArrayInputStream itemPDFReport(List<Item> items) {
