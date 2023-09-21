@@ -28,19 +28,14 @@ public class PDFExportController {
     ClientRepository clientRepository;
     @Autowired
     SupplierRepository supplierRepository;
-
     @Autowired
     DatabasePDFService databasePDFService;
 
     @GetMapping(value = "/report/item-pdf", produces = MediaType.APPLICATION_PDF_VALUE)
     public ResponseEntity<InputStreamResource> itemReport()  throws IOException {
         List<Item> items = (List<Item>) itemRepository.findAll();
-        List<Client> clients = (List<Client>) clientRepository.findAll();
-
 
         ByteArrayInputStream itemPDFReport = DatabasePDFService.itemPDFReport(items);
-        ByteArrayInputStream clientPDFReport = DatabasePDFService.clientPDFReport(clients);
-
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Disposition", "inline; filename = items.pdf");
@@ -53,9 +48,7 @@ public class PDFExportController {
     public ResponseEntity<InputStreamResource> customerReport()  throws IOException {
         List<Client> clients = (List<Client>) clientRepository.findAll();
 
-
         ByteArrayInputStream clientPDFReport = DatabasePDFService.clientPDFReport(clients);
-
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Disposition", "inline; filename = customer.pdf");
@@ -68,9 +61,7 @@ public class PDFExportController {
     public ResponseEntity<InputStreamResource> supplierReport()  throws IOException {
         List<Supplier> suppliers = (List<Supplier>) supplierRepository.findAll();
 
-
         ByteArrayInputStream supplierPDFReport = DatabasePDFService.supplierPDFReport(suppliers);
-
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Disposition", "inline; filename = suppliers.pdf");

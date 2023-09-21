@@ -90,11 +90,11 @@ public class ItemService {
         return totalRevenue;
     }
 
-    public double getProjectedIncome(){
+    public double getProjectedIncome() {
         List<Item> items = itemRepository.findAll();
         double totalProjectedIncome = 0.0;
 
-        for (Item item: items) {
+        for (Item item : items) {
             double itemIncome = (item.getSellPrice() * item.getQuantity()) - (item.getBuyPrice() * item.getQuantity());
             totalProjectedIncome += itemIncome;
         }

@@ -18,14 +18,14 @@ public class ItemController {
     ItemService itemService;
 
     @GetMapping("/add-item")
-    public String addItemsForm(Model model){
+    public String addItemsForm(Model model) {
         model.addAttribute("item", new ItemDto());
         model.addAttribute("success", true);
         return "add-item";
     }
 
     @RequestMapping("/submit-item")
-    public String submitItemForm(@ModelAttribute ItemDto item, Model model){
+    public String submitItemForm(@ModelAttribute ItemDto item, Model model) {
         try {
             Item newItem = new Item(item.getItemId(), item.getItemName(), item.getDescription(), item.getBuyPrice(), item.getSellPrice(), item.getQuantity(), item.getImageUrl(), item.getSupplier());
             itemService.addNewItems(newItem);
@@ -37,27 +37,27 @@ public class ItemController {
     }
 
     @GetMapping("/view-item/{id}")
-    public String viewItem(@PathVariable(value = "id")String id, Model model){
+    public String viewItem(@PathVariable(value = "id") String id, Model model) {
         Item itemShow = itemService.getItemById(id);
         model.addAttribute("item", itemShow);
         return "view-item";
     }
 
     @GetMapping("/item-list")
-    public String showItemList(Model model){
+    public String showItemList(Model model) {
         model.addAttribute("itemList", itemService.getAllItems());
         return "item-list";
     }
 
     @GetMapping("/showItemForUpdate/{id}")
-    public String showItemForUpdate(@PathVariable(value = "id") String id, Model model){
+    public String showItemForUpdate(@PathVariable(value = "id") String id, Model model) {
         Item item = itemService.getItemById(id);
         model.addAttribute("item", item);
         return "/add-item";
     }
 
     @GetMapping("/deleteItem/{id}")
-    public String deleteItem(@PathVariable(value = "id") String id){
+    public String deleteItem(@PathVariable(value = "id") String id) {
         itemService.deleteItemById(id);
         return "redirect:/item-list";
     }
