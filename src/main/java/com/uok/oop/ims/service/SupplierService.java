@@ -38,4 +38,8 @@ public class SupplierService {
         this.supplierRepository.deleteById(id);
     }
 
+    public long getTotalSuppliers() {
+        return supplierRepository.count();
+    }
+
 }

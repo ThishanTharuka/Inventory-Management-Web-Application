@@ -54,6 +54,10 @@ public class ItemService {
         this.itemRepository.deleteById(id);
     }
 
+    public long getTotalItems() {
+        return itemRepository.count();
+    }
+
     public int getTotalQuantityOfAllItems() {
         // Sum up the quantity of all items using a custom query
         Integer totalQuantity = itemRepository.sumTotalQuantity();

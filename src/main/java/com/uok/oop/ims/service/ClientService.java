@@ -13,18 +13,18 @@ import java.util.Optional;
 @Transactional
 public class ClientService {
     @Autowired
-    ClientRepository clientrepository;
+    ClientRepository clientRepository;
 
     public void addClient(Client client) {
-        clientrepository.save(client);
+        clientRepository.save(client);
     }
 
     public List<Client> getAllClients() {
-        return clientrepository.findAll();
+        return clientRepository.findAll();
     }
 
     public Client getClientById(String id) {
-        Optional<Client> optional = clientrepository.findById(id);
+        Optional<Client> optional = clientRepository.findById(id);
         Client client = null;
         if (optional.isPresent()) {
             client = optional.get();
@@ -35,7 +35,11 @@ public class ClientService {
     }
 
     public void deleteClientById(String id) {
-        this.clientrepository.deleteById(id);
+        this.clientRepository.deleteById(id);
+    }
+
+    public long getTotalCustomers() {
+        return clientRepository.count();
     }
 
 }
