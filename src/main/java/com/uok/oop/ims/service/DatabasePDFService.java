@@ -40,9 +40,9 @@ public class DatabasePDFService {
             document.add(para);
             document.add(Chunk.NEWLINE);
 
-            PdfPTable itemTable = new PdfPTable(5);
+            PdfPTable itemTable = new PdfPTable(6);
             // Add PDF Table Header ->
-            Stream.of("ID", "Item Name", "Buy Price", "Sell Price", "Quantity").forEach(headerTitle -> {
+            Stream.of("ID", "Item Name","Description", "Buy Price", "Sell Price", "Quantity").forEach(headerTitle -> {
                 PdfPCell header = new PdfPCell();
                 Font headFont = FontFactory.getFont(FontFactory.TIMES_BOLD);
                 header.setBackgroundColor(Color.WHITE);
@@ -59,29 +59,35 @@ public class DatabasePDFService {
                 idCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 itemTable.addCell(idCell);
 
-                PdfPCell firstNameCell = new PdfPCell(new Phrase(item.getItemName()));
-                firstNameCell.setPaddingLeft(4);
-                firstNameCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                firstNameCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                itemTable.addCell(firstNameCell);
+                PdfPCell itemNameCell = new PdfPCell(new Phrase(item.getItemName()));
+                itemNameCell.setPaddingLeft(4);
+                itemNameCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                itemNameCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                itemTable.addCell(itemNameCell);
 
-                PdfPCell lastNameCell = new PdfPCell(new Phrase(String.valueOf(item.getBuyPrice())));
-                lastNameCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                lastNameCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                lastNameCell.setPaddingRight(4);
-                itemTable.addCell(lastNameCell);
+                PdfPCell descriptionCell = new PdfPCell(new Phrase(item.getDescription()));
+                descriptionCell.setPaddingLeft(4);
+                descriptionCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                descriptionCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                itemTable.addCell(descriptionCell);
 
-                PdfPCell deptCell = new PdfPCell(new Phrase(String.valueOf(item.getSellPrice())));
-                deptCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                deptCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                deptCell.setPaddingRight(4);
-                itemTable.addCell(deptCell);
+                PdfPCell buyPriceCell = new PdfPCell(new Phrase(String.valueOf(item.getBuyPrice())));
+                buyPriceCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                buyPriceCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                buyPriceCell.setPaddingRight(4);
+                itemTable.addCell(buyPriceCell);
 
-                PdfPCell phoneNumCell = new PdfPCell(new Phrase(String.valueOf(item.getQuantity())));
-                phoneNumCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                phoneNumCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                phoneNumCell.setPaddingRight(4);
-                itemTable.addCell(phoneNumCell);
+                PdfPCell sellPriceCell = new PdfPCell(new Phrase(String.valueOf(item.getSellPrice())));
+                sellPriceCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                sellPriceCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                sellPriceCell.setPaddingRight(4);
+                itemTable.addCell(sellPriceCell);
+
+                PdfPCell QuantityCell = new PdfPCell(new Phrase(String.valueOf(item.getQuantity())));
+                QuantityCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                QuantityCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                QuantityCell.setPaddingRight(4);
+                itemTable.addCell(QuantityCell);
             }
             document.add(itemTable);
 
@@ -109,9 +115,9 @@ public class DatabasePDFService {
             document.add(para);
             document.add(Chunk.NEWLINE);
 
-            PdfPTable clientTable = new PdfPTable(5);
+            PdfPTable clientTable = new PdfPTable(6);
             // Add PDF Table Header ->
-            Stream.of("ID", "Client Name", "Email", "Contact No.", "Address").forEach(headerTitle -> {
+            Stream.of("ID", "Client Name", "Email","NIC", "Contact No.", "Address").forEach(headerTitle -> {
                 PdfPCell header = new PdfPCell();
                 Font headFont = FontFactory.getFont(FontFactory.TIMES_BOLD);
                 header.setBackgroundColor(Color.WHITE);
@@ -128,29 +134,35 @@ public class DatabasePDFService {
                 idCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 clientTable.addCell(idCell);
 
-                PdfPCell firstNameCell = new PdfPCell(new Phrase(client.getClient_name()));
-                firstNameCell.setPaddingLeft(4);
-                firstNameCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                firstNameCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                clientTable.addCell(firstNameCell);
+                PdfPCell NameCell = new PdfPCell(new Phrase(client.getClient_name()));
+                NameCell.setPaddingLeft(4);
+                NameCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                NameCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                clientTable.addCell(NameCell);
 
-                PdfPCell lastNameCell = new PdfPCell(new Phrase(String.valueOf(client.getClient_email())));
-                lastNameCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                lastNameCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                lastNameCell.setPaddingRight(4);
-                clientTable.addCell(lastNameCell);
+                PdfPCell emailCell = new PdfPCell(new Phrase(String.valueOf(client.getClient_email())));
+                emailCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                emailCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                emailCell.setPaddingRight(4);
+                clientTable.addCell(emailCell);
 
-                PdfPCell deptCell = new PdfPCell(new Phrase(String.valueOf(client.getClient_contact())));
-                deptCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                deptCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                deptCell.setPaddingRight(4);
-                clientTable.addCell(deptCell);
+                PdfPCell nicCell = new PdfPCell(new Phrase(String.valueOf(client.getClient_NIC())));
+                nicCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                nicCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                nicCell.setPaddingRight(4);
+                clientTable.addCell(nicCell);
 
-                PdfPCell phoneNumCell = new PdfPCell(new Phrase(String.valueOf(client.getClient_address())));
-                phoneNumCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                phoneNumCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                phoneNumCell.setPaddingRight(4);
-                clientTable.addCell(phoneNumCell);
+                PdfPCell contactCell = new PdfPCell(new Phrase(String.valueOf(client.getClient_contact())));
+                contactCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                contactCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                contactCell.setPaddingRight(4);
+                clientTable.addCell(contactCell);
+
+                PdfPCell addressCell = new PdfPCell(new Phrase(String.valueOf(client.getClient_address())));
+                addressCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                addressCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                addressCell.setPaddingRight(4);
+                clientTable.addCell(addressCell);
             }
             document.add(clientTable);
 
@@ -178,9 +190,9 @@ public class DatabasePDFService {
             document.add(para);
             document.add(Chunk.NEWLINE);
 
-            PdfPTable clientTable = new PdfPTable(5);
+            PdfPTable clientTable = new PdfPTable(6);
             // Add PDF Table Header ->
-            Stream.of("ID", "Supplier Name", "Email", "Contact No.", "Address").forEach(headerTitle -> {
+            Stream.of("ID", "Supplier Name", "Email","NIC", "Contact No.", "Address").forEach(headerTitle -> {
                 PdfPCell header = new PdfPCell();
                 Font headFont = FontFactory.getFont(FontFactory.TIMES_BOLD);
                 header.setBackgroundColor(Color.WHITE);
@@ -197,29 +209,35 @@ public class DatabasePDFService {
                 idCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 clientTable.addCell(idCell);
 
-                PdfPCell firstNameCell = new PdfPCell(new Phrase(supplier.getSupplierName()));
-                firstNameCell.setPaddingLeft(4);
-                firstNameCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                firstNameCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                clientTable.addCell(firstNameCell);
+                PdfPCell NameCell = new PdfPCell(new Phrase(supplier.getSupplierName()));
+                NameCell.setPaddingLeft(4);
+                NameCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                NameCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                clientTable.addCell(NameCell);
 
-                PdfPCell lastNameCell = new PdfPCell(new Phrase(String.valueOf(supplier.getEmail())));
-                lastNameCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                lastNameCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                lastNameCell.setPaddingRight(4);
-                clientTable.addCell(lastNameCell);
+                PdfPCell emailCell = new PdfPCell(new Phrase(String.valueOf(supplier.getEmail())));
+                emailCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                emailCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                emailCell.setPaddingRight(4);
+                clientTable.addCell(emailCell);
 
-                PdfPCell deptCell = new PdfPCell(new Phrase(String.valueOf(supplier.getSupplierContactNumber())));
-                deptCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                deptCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                deptCell.setPaddingRight(4);
-                clientTable.addCell(deptCell);
+                PdfPCell nicCell = new PdfPCell(new Phrase(String.valueOf(supplier.getSupplierNIC())));
+                nicCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                nicCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                nicCell.setPaddingRight(4);
+                clientTable.addCell(nicCell);
 
-                PdfPCell phoneNumCell = new PdfPCell(new Phrase(String.valueOf(supplier.getAddress())));
-                phoneNumCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                phoneNumCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                phoneNumCell.setPaddingRight(4);
-                clientTable.addCell(phoneNumCell);
+                PdfPCell contactCell = new PdfPCell(new Phrase(String.valueOf(supplier.getSupplierContactNumber())));
+                contactCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                contactCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                contactCell.setPaddingRight(4);
+                clientTable.addCell(contactCell);
+
+                PdfPCell addressCell = new PdfPCell(new Phrase(String.valueOf(supplier.getAddress())));
+                addressCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                addressCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                addressCell.setPaddingRight(4);
+                clientTable.addCell(addressCell);
             }
             document.add(clientTable);
 
