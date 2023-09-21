@@ -134,7 +134,8 @@ h1 {
 }
 
 .horizontal div h3 {
-    font-weight: lighter;
+    margin-top: 2rem;
+    font-weight: normal;
 }
 
 .horizontal div p {
@@ -151,4 +152,28 @@ h1 {
     height: 90px;
     width: 2px;
     background-color: #ccc;
+}
+
+.btn {
+    float: right;
+    margin-right: 1rem;
+}
+
+/* Styling for the logout link button */
+.btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #AD9FFF;
+    color: black;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the logout link button */
+.btn:hover {
+    background-color: #8672FF;
+    cursor: pointer;
 }

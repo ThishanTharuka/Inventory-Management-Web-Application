@@ -78,12 +78,24 @@ public class ItemService {
         return totalExpenditure;
     }
 
-    public double getTotalProjectedIncomeForAllItems() {
+    public double getTotalRevenue() {
+        List<Item> items = itemRepository.findAll();
+        double totalRevenue = 0.0;
+
+        for (Item item : items) {
+            double itemRevenue = item.getSellPrice() * item.getQuantity();
+            totalRevenue += itemRevenue;
+        }
+
+        return totalRevenue;
+    }
+
+    public double getProjectedIncome(){
         List<Item> items = itemRepository.findAll();
         double totalProjectedIncome = 0.0;
 
-        for (Item item : items) {
-            double itemIncome = item.getSellPrice() * item.getQuantity();
+        for (Item item: items) {
+            double itemIncome = (item.getSellPrice() * item.getQuantity()) - (item.getBuyPrice() * item.getQuantity());
             totalProjectedIncome += itemIncome;
         }
 

@@ -27,7 +27,19 @@ public class HomeController {
         model.addAttribute("totalCustomers", totalCustomers);
         model.addAttribute("totalQuantity", itemService.getTotalQuantityOfAllItems());
         model.addAttribute("totalExpenditure", itemService.getTotalExpenditureForAllItems());
-        model.addAttribute("totalProjectedIncome", itemService.getTotalProjectedIncomeForAllItems());
+        model.addAttribute("totalRevenue", itemService.getTotalRevenue());
+        model.addAttribute("totalProjectedIncome", itemService.getProjectedIncome());
         return "home";
     }
+
+    @GetMapping("/report")
+    public String report(Model model){
+        model.addAttribute("itemList", itemService.getAllItems());
+        model.addAttribute("supplierList", supplierService.getAllSuppliers());
+        model.addAttribute("customerList", clientService.getAllClients());
+        return "report";
+    }
+
+
+
 }
