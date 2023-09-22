@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Inventory Report</title>
+
+    <!-- Include CSS stylesheet using Thymeleaf expression -->
     <link rel="stylesheet" type="text/css" media="all" href="/css/report.css" th:href="@{/css/report.css}"/>
 </head>
 <body>
+<!-- Header Section -->
 <header id="nav">
+    <!-- Home link with INVENTORA title -->
     <a th:href="@{/}" class="header-link">
         <h1>INVENTORA</h1>
     </a>
@@ -26,6 +30,7 @@
         </tr>
         </thead>
         <tbody>
+        <!-- Iterate over items and populate the table rows -->
         <tr th:each="item : ${itemList}">
             <td th:text="${item.itemId}"></td>
             <td th:text="${item.itemName}"></td>
@@ -50,6 +55,7 @@
         </tr>
         </thead>
         <tbody>
+        <!-- Iterate over customers and populate the table rows -->
         <tr th:each="customer : ${customerList}">
             <td th:text="${customer.client_id}"></td>
             <td th:text="${customer.client_name}"></td>
@@ -74,6 +80,7 @@
         </tr>
         </thead>
         <tbody>
+        <!-- Iterate over suppliers and populate the table rows -->
         <tr th:each="supplier : ${supplierList}">
             <td th:text="${supplier.supplierId}"></td>
             <td th:text="${supplier.supplierName}"></td>
@@ -86,6 +93,7 @@
     </table>
 </div>
 <div class="btn-container">
+    <!-- Export PDF buttons -->
     <a class="btn" th:href="@{report/item-pdf}">Export Items PDF</a>
     <a class="btn" th:href="@{report/customer-pdf}">Export Customers PDF</a>
     <a class="btn" th:href="@{report/supplier-pdf}">Export Suppliers PDF</a>

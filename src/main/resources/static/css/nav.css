@@ -9,6 +9,7 @@
     justify-content: space-between;
     align-items: center;
     font-family: Product Sans, Helvetica, sans-serif;
+    border-bottom: 1px solid #dcdbdb;
 }
 
 #nav ul {

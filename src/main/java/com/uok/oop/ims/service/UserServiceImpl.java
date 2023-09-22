@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
 
@@ -30,26 +30,41 @@ public class UserServiceImpl implements UserService{
         this.userRepository = userRepository;
     }
 
+    // Save a new user with registration details
     @Override
     public User save(UserRegistrationDto registrationDto) {
-        User user = new User(registrationDto.getFirstName(),
-                registrationDto.getLastName(), registrationDto.getEmail(),
-                passwordEncoder.encode(registrationDto.getPassword()), Arrays.asList(new Role("ROLE USER")));
+        // Create a new User instance with the provided registration details
+        User user = new User(
+                registrationDto.getFirstName(),
+                registrationDto.getLastName(),
+                registrationDto.getEmail(),
+                passwordEncoder.encode(registrationDto.getPassword()),
+                Arrays.asList(new Role("ROLE USER")));
 
-        return  userRepository.save(user);
+        // Save the user to the repository and return the saved user
+        return userRepository.save(user);
     }
 
+    // Load a user by username for authentication
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        // Find the user by their email (username)
         User user = userRepository.findByEmail(username);
-        if(user == null) {
+        if (user == null) {
             throw new UsernameNotFoundException("Invalid username or password.");
         }
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
+
+        // Map user roles to Spring Security authorities
+        return new org.springframework.security.core.userdetails.User(
+                user.getEmail(),
+                user.getPassword(),
+                mapRolesToAuthorities(user.getRoles()));
     }
 
+    // Helper method to map user roles to Spring Security authorities
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
-        return roles.stream().map(role ->new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+        return roles.stream()
+                .map(role -> new SimpleGrantedAuthority(role.getName()))
+                .collect(Collectors.toList());
     }
-
 }

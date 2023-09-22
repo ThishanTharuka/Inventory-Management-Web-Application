@@ -8,16 +8,18 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String name;
+    private long id;     // Role ID
+    private String name; // Role name
 
+    // Constructors
     public Role(String name) {
         this.name = name;
     }
 
     public Role() {
-
     }
+
+    // Getter and setter methods for each field
 
     public long getId() {
         return id;
@@ -34,6 +36,4 @@ public class Role {
     public void setName(String name) {
         this.name = name;
     }
-
-
 }

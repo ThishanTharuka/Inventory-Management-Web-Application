@@ -10,18 +10,19 @@ import jakarta.persistence.Table;
 public class Supplier {
     @Id
     @Column(name = "suppliier_id")
-    private String supplierId;
+    private String supplierId;               // Supplier ID
     @Column(name = "supplier_name")
-    private String supplierName;
+    private String supplierName;             // Supplier name
     @Column(name = "suppliier_nic")
-    private String supplierNIC;
+    private String supplierNIC;              // Supplier NIC (National Identification Card)
     @Column(name = "contact_number")
-    private String supplierContactNumber;
+    private String supplierContactNumber;    // Supplier contact number
     @Column(name = "email")
-    private String email;
+    private String email;                    // Supplier email address
     @Column(name = "address")
-    private String address;
+    private String address;                  // Supplier address
 
+    // Constructors
     public Supplier() {
     }
 
@@ -33,6 +34,8 @@ public class Supplier {
         this.email = email;
         this.address = address;
     }
+
+    // Getter and setter methods for each field
 
     public String getSupplierId() {
         return supplierId;

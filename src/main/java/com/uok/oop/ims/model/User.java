@@ -1,7 +1,6 @@
 package com.uok.oop.ims.model;
 
 import jakarta.persistence.*;
-
 import java.util.Collection;
 
 @Entity
@@ -10,23 +9,23 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
+    private long id;                      // User ID
     @Column(name = "first_name")
-    private String firstName;
+    private String firstName;             // User's first name
     @Column(name = "last_name")
-    private String lastName;
-    private String email;
-    private String password;
+    private String lastName;              // User's last name
+    private String email;                 // User's email address
+    private String password;              // User's password
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(
                     name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private Collection<Role> roles;       // User's roles
 
-    private Collection<Role> roles;
-
+    // Constructors
     public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -36,8 +35,9 @@ public class User {
     }
 
     public User() {
-
     }
+
+    // Getter and setter methods for each field
 
     public long getId() {
         return id;

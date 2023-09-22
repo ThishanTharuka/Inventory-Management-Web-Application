@@ -17,17 +17,21 @@ public class ItemService {
 
     @Autowired
     ItemRepository itemRepository;
+
     @Autowired
     SupplierRepository supplierRepository;
 
+    // Add a new item to the database
     public void addItems(Item item) {
         itemRepository.save(item);
     }
 
+    // Retrieve all items from the database
     public List<Item> getAllItems() {
         return itemRepository.findAll();
     }
 
+    // Retrieve an item by its unique ID
     public Item getItemById(String id) {
         Optional<Item> optional = itemRepository.findById(id);
         Item item = null;
@@ -39,35 +43,35 @@ public class ItemService {
         return item;
     }
 
+    // Add a new item to the database with validation for the supplier's existence
     public void addNewItems(Item item) {
         // Check if the supplier exists in the database
-        String supplierId = item.getSupplier().getSupplierId(); // Assuming you have a getter for supplierId in Supplier class
+        String supplierId = item.getSupplier().getSupplierId();
         if (supplierRepository.existsById(supplierId)) {
-            // Supplier exists, save the item
             itemRepository.save(item);
         } else {
             // Supplier does not exist, handle the error or throw an exception
-            // You can throw a custom exception or handle the error as per your application's requirements.
             throw new RuntimeException("Supplier does not exist");
         }
     }
 
+    // Delete an item from the database by its ID
     public void deleteItemById(String id) {
         this.itemRepository.deleteById(id);
     }
 
+    // Get the total number of items in the database
     public long getTotalItems() {
         return itemRepository.count();
     }
 
+    // Calculate the total quantity of all items in the database
     public int getTotalQuantityOfAllItems() {
-        // Sum up the quantity of all items using a custom query
         Integer totalQuantity = itemRepository.sumTotalQuantity();
-
-        // Handle null case if there are no items in the database
         return totalQuantity != null ? totalQuantity : 0;
     }
 
+    // Calculate the total expenditure for all items (buy price * quantity)
     public double getTotalExpenditureForAllItems() {
         List<Item> items = itemRepository.findAll();
         double totalExpenditure = 0.0;
@@ -80,6 +84,7 @@ public class ItemService {
         return totalExpenditure;
     }
 
+    // Calculate the total revenue for all items (sell price * quantity)
     public double getTotalRevenue() {
         List<Item> items = itemRepository.findAll();
         double totalRevenue = 0.0;
@@ -92,6 +97,7 @@ public class ItemService {
         return totalRevenue;
     }
 
+    // Calculate the projected income (total revenue - total expenditure)
     public double getProjectedIncome() {
         List<Item> items = itemRepository.findAll();
         double totalProjectedIncome = 0.0;

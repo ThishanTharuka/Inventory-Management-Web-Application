@@ -1,13 +1,14 @@
 package com.uok.oop.ims.dto;
 
 public class SupplierDto {
+    private String supplierId;             // Supplier ID
+    private String supplierName;           // Supplier name
+    private String supplierNIC;            // Supplier's NIC (National Identity Card) number
+    private String supplierContactNumber;  // Supplier's contact number
+    private String email;                  // Supplier's email address
+    private String address;                // Supplier's address
 
-    private String supplierId;
-    private String supplierName;
-    private String supplierNIC;
-    private String supplierContactNumber;
-    private String email;
-    private String address;
+    // Getter and setter methods for each field
 
     public String getSupplierId() {
         return supplierId;

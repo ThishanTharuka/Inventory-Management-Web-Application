@@ -4,15 +4,16 @@ import com.uok.oop.ims.model.Supplier;
 import jakarta.persistence.Column;
 
 public class ItemDto {
-    private String itemId;
-    private String itemName;
-    private String description;
-    private double buyPrice;
-    private double sellPrice;
+    private String itemId;       // Item ID
+    private String itemName;     // Item name
+    private String description;  // Item description
+    private double buyPrice;    // Purchase price
+    private double sellPrice;   // Selling price
+    private int quantity;       // Quantity in stock
+    private String imageUrl;    // URL for item image
+    private Supplier supplier;  // Supplier information
 
-    private int quantity;
-    private String imageUrl;
-    private Supplier supplier;
+    // Getter and setter methods for each field
 
     public String getItemId() {
         return itemId;

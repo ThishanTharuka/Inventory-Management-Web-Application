@@ -7,24 +7,25 @@ import jakarta.persistence.*;
 public class Item {
     @Id
     @Column(name = "item_Id")
-    private String itemId;
+    private String itemId;         // Item ID
     @Column(name = "item_name")
-    private String itemName;
+    private String itemName;       // Item name
     @Column(name = "description")
-    private String description;
+    private String description;    // Item description
     @Column(name = "buy_price")
-    private double buyPrice;
+    private double buyPrice;      // Purchase price
     @Column(name = "sell_price")
-    private double sellPrice;
+    private double sellPrice;     // Selling price
     @Column(name = "quantity")
-    private int quantity;
+    private int quantity;         // Quantity in stock
     @Column(name = "imageUrl")
-    private String imageUrl;
+    private String imageUrl;      // URL for item image
+
     @ManyToOne
     @JoinColumn(name = "supplier_id")
-    private Supplier supplier;
+    private Supplier supplier;    // Supplier information
 
-
+    // Constructors
     public Item() {
     }
 
@@ -38,6 +39,8 @@ public class Item {
         this.imageUrl = imageUrl;
         this.supplier = supplier;
     }
+
+    // Getter and setter methods for each field
 
     public String getItemId() {
         return itemId;

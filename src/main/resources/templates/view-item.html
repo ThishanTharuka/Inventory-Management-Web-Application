@@ -4,9 +4,13 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Show Item</title>
+
+    <!-- Include CSS stylesheets using Thymeleaf expressions -->
     <link rel="stylesheet" type="text/css" href="/css/view-item.css" th:href="@{/css/view-item.css}"/>
     <link rel="stylesheet" type="text/css" href="/css/nav.css" th:href="@{/css/nav.css}"/>
 </head>
+<body>
+<!-- Navigation Section -->
 <nav id="nav">
     <ul>
         <li>
@@ -27,12 +31,14 @@
         <a th:href="@{/logout}" class="logOut_btn">Logout</a>
     </div>
 </nav>
-<body>
 <div id="container" th:object="${item}">
+    <!-- Item Details -->
     <h1 th:text="${item.itemName}">Item Name</h1>
     <div class="item">
         <p class="info" th:text="${item.description}">Item information</p>
         <div class="details">
+            <p>Item ID: <span th:text="${item.itemId}">N/A</span></p>
+            <p>Supplier Name: <span th:text="${item.supplier.supplierName}">N/A</span></p>
             <p>Buy Price: LKR <span th:text="${#numbers.formatDecimal(item.buyPrice, 0, 'COMMA', 2, 'POINT')}">N/A</span></p>
             <p>Sell Price: LKR <span th:text="${#numbers.formatDecimal(item.sellPrice, 0, 'COMMA', 2, 'POINT')}">N/A</span></p>
             <p>Quantity: <span th:text="${item.quantity}">N/A</span></p>
@@ -45,6 +51,7 @@
         </div>
     </div>
 </div>
+<!-- Footer Section -->
 <footer>
     <div>
         <h3>About</h3>

@@ -41,8 +41,11 @@ body {
 
 .details p {
   margin-bottom: 1.5rem;
+  font-weight: lighter;
 }
-
+.details span {
+  font-weight: bold;
+}
 .image img {
   height: 25rem;
   border-radius: 5px;

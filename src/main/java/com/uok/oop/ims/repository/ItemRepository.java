@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ItemRepository extends JpaRepository<Item, String> {
 
+    // Custom query to calculate the sum of total quantity for all items
     @Query("SELECT SUM(i.quantity) FROM Item i")
     Integer sumTotalQuantity();
-
 }

@@ -1,11 +1,12 @@
 package com.uok.oop.ims.dto;
 
 public class UserRegistrationDto {
-    private String firstName;
-    private String lastName;
-    private  String email;
-    private  String password;
+    private String firstName;  // User's first name
+    private String lastName;   // User's last name
+    private String email;      // User's email address
+    private String password;   // User's password
 
+    // Constructors
     public UserRegistrationDto(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -14,8 +15,9 @@ public class UserRegistrationDto {
     }
 
     public UserRegistrationDto() {
-
     }
+
+    // Getter and setter methods for each field
 
     public String getFirstName() {
         return firstName;
@@ -48,6 +50,4 @@ public class UserRegistrationDto {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
 }
