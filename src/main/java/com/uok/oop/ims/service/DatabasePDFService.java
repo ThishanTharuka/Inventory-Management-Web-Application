@@ -23,7 +23,6 @@ import com.lowagie.text.Phrase;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
 public class DatabasePDFService {
 
     public static ByteArrayInputStream itemPDFReport(List<Item> items) {
